@@ -1,4 +1,4 @@
-package trabajo2;
+package trabajo2.inciso1;
 
 public class Cliente extends Thread {
     private Recurso miRecurso;

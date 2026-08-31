@@ -1,4 +1,4 @@
-package trabajo2;
+package trabajo2.inciso1;
 
 public class TesteoRecurso {
     public static void main(String[] args) {
@@ -10,5 +10,6 @@ public class TesteoRecurso {
         ines.setName("Ines Garcia");
         juan.start();
         ines.start();
+        unRecurso.uso();
     }
 }
