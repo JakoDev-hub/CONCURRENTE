@@ -1,4 +1,4 @@
-package trabajoUno.AlquilerDeEspaciosParaAviones;
+package AlquilerDeEspaciosParaAviones;
 
 public class Cliente {
    private int DNI;
