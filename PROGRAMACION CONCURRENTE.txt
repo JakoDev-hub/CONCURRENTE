@@ -1,0 +1,69 @@
+PROGRAMACION CONCURRENTE
+CLASE 01/09
+SECCION CRITICA --> E.M. -->sincronizacion por competencia --> mecanismos 
+1) metodos y bloques "SYNCHRONIZED"
+2) semaforos binarios 
+3) lock --> explicito
+
+hablaremos sobre seccies criticas, donde ocurren situaciones problematicas ()
+DATO (cuando un hilo este trabajando, no inicia el proximo hilo hasta que no termine aquel hilo que este trabajando o se le acabe el tiempo de ejecucion)
+
+ 
+1) 
+
+inicio"SYNCHRONIZED" --> llave de acceso implícita 
+los bloques se pueden realizar siempre que tengan el acceso a la llave 
+
+los hilos no son recursos compartidos, son objetos activos, dado que requieren de un metodo "run"(un metodo que llame y trabaje con este )
+las llaves de acceso no interactúan cuando un archivo solo posee un metodo e hilo que trabaje con este osea, no 
+
+el LOCK es re entrante --> si un método salta a otro método(modulo) el cual trabaja sobre el mismo objeto , el sistema no necesita volver a ser llamado con el LOCK 
+
+el metodo que se este ejecutando , a su vez esta usando el LOCK = llave de acceso... hasta que este metodo no termine, o se le acabe el tiempo de ejecucion, dicho metodo no soltara el LOCK 
+
+LA PROFESORA esta cansada de que se olviden de <modularizar>
+
+dentro de 1) este se utiliza el lock implicito 
+
+2) 
+
+los semaforos trabajan con permisos 
+
+existe una clase en java explicitamente llamada *SEMAFORO*
+de esta clase se utilizara en la materia para realizar la función de los semáforos binarios / sus permisos --> (0,1)
+
+dicho sistema de la PERMISO a un hilo, y cando termine el hilo se le quita el permiso para que OTRO hilo se le de el PERMISO
+
+normalmente en este inicio de clases(para exclucion mutua) cada permiso lo dara (1 permiso) --> ADQUIRIR EL PERMISO(----acquire()----) --> LIBERAR EL PERMISO(----release()----) 
+
+la clase semaforo tiene varias operaciones,pero en esta materia nos enfocaremos unicamente/principalmente en los permisos para trabajar
+
+RECORDAR SIEMPRE de liberar el permiso para poder continuar con el proximo hilo.
+
+nos explica un caso especial de un metodo con inicio de permiso, llama a un método que necesita para trabajar y tambien inicia el permiso y corta su permiso, tras llamarlo y devolver el dato cierra el primer modulo
+
+en este ejemplo la profe nos indica que esta mal dado que el primer modulo al llamar a otro no puede superponerse, sobre la ejecucion del primero, dado que el primer modulo no cerro el permiso antes de llamarlo 
+
+para estos casos te dice que realices un análisis anterior al problema para no tener estos errores 
+
+mira el ejemplo de los semaforos en el archivo "C6-Clase de sincronizacion-3-Semaforos Binarios y Locks"
+
+3)
+
+LOCK --> EXPLICITO __(Cerrojos)
+
+4) 
+
+probloemas clasicos 
+
+con esta explicacion se muestra de forma directa como funcionan los metodos con 4 ejercicos practicos 
+
+1_ Barbero Dorimilon 
+2_ Productor / Consumidor 
+3_ Lectores / Escritores 
+4_ Filosofos cenando 
+
+ejemplo 1_ Barbero Dorimilon  
+cuando no hay clientes el barbero se sienta en la silla y se dierme.--> OCURRE UN SISTEMA BLOQUEADO DONDE (el hilo se encentra bloqueado hasta que llega un cliente, y arranca el siguiente proceso )
+cuando llega un nuevo cliente,
+si el barbero duerme: despierta al barbero o si el barbero esta afeitando a otro cliente: se sienta en una silla . -- > mientras el barbero trabaja, el cliente/ hilo se encuentra en estanbyte 
