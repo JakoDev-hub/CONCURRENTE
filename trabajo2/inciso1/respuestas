@@ -2,11 +2,15 @@
 a) Analice el funcionamiento del siguiente código. ¿Cuántos hilos de control participan en
 la ejecución?
 
+hay dos hilos de control que participan en la ejecución del codigo, el hilo principal y un hilo creado a partir de la clase Cliente.
+
 en el codigo participan 3 hilos de control, el hilo principal y dos hilos creados a partir de la clase Cliente.
 
 b) ¿Cúal es la funcionalidad del método “uso” de Recurso?
 
+
 el metodo uso de la clase Recurso imprime en pantalla el nombre del hilo que lo esta ejecutando, es decir, el hilo que llama al metodo uso.
+
 c) Indique todas las salidas posibles.
 
 en la salida 1 se puede observar que el hilo principal ejecuta el metodo uso de la clase Recurso, luego el hilo Juan ejecuta el metodo uso y finalmente el hilo Ines ejecuta el metodo uso.
